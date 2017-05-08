@@ -11,24 +11,25 @@ This work uses a pre-trained network (in this case VGG-19)
 # Examples
 Lets start with the mandatory Tubingen (germany) + starry sky combination.
 <div align="center">
- <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/starry_night.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/style/tubingen.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/outputs/starry_tubingen.jpg" width="512px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/tubingen.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/style/starry_night.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/Wolterr/NeuralArt/master/examples/output/starry_tubingen.jpg" width="512px">
 </div>
 
 Next a Cubism style image of a street in Trinidad (Cuba)
 <div align="center">
- <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/cubism.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/style/trinidad.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/outputs/cubed_trinidad.jpg" width="512px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/trinidad.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/style/cubism.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/output/cubed_trinidad.jpg" width="512px">
 </div>
 
 # Usage
 Basic usage:
 
 '''
-python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OUTPUTFOLDER\/OUTPUTFILENAME>
+python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OUTPUTLOCATION>
 '''
+
 
 ## optional arguments:
   '-h, --help'                                    show this help message and exit
