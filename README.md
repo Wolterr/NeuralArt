@@ -12,7 +12,7 @@ This work uses a pre-trained network (in this case VGG-19)
 Lets start with the mandatory Tubingen (germany) + starry sky combination.
 <div align="center">
  <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/tubingen.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/style/starry_night.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/style/starry_sky.jpg" height="223px">
  <img src="https://raw.githubusercontent.com/Wolterr/NeuralArt/master/examples/output/starry_tubingen.jpg" width="512px">
 </div>
 
@@ -26,29 +26,30 @@ Next a Cubism style image of a street in Trinidad (Cuba)
 # Usage
 Basic usage:
 
-'''
+```
 python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OUTPUTLOCATION>
-'''
+```
 
 
 ## optional arguments:
-  '-h, --help'                                    show this help message and exit
-  '--style-image STYLE'                           style image
-  '--content-image CONTENT'                       content image
-  '--image_size SIZE'                             maximum width and/or height of the image
-  '--input-type INPUT_TYPE'                       use either content image or random noise as input
-  '--output OUTPUT'                               output name
-  '--print-iter PRINT_ITER'                       interval to print training information
-  '--save-iter SAVE_ITER'                         interval to save generated images
-  '--learning-rate LEARNING_RATE'                 learning rate
-  '--content-weight CONTENT_WEIGHT'               content weight factor
-  '--style-weight STYLE_WEIGHT'                   style weight factor
-  '--variation-weight TV_WEIGHT'                  axis-wise variation normalisation weight factor
-  '--iterations ITERATIONS'                       number of iterations
-  '--content-layer CONTENT_LAYERS'                layer for content representation
-  '--style-layers STYLE_LAYERS'                   style representation layers to use
-  '--style-layer-weights STYLE_LAYER_WEIGHTS'     weights for each style layer to use
-  '--weights-file WEIGHTS_FILE'                   File to read pre-trained VGG19 weights from
+  `-h, --help`                                    show this help message and exit
+  `--style-image STYLE`                           style image
+  `--content-image CONTENT`                       content image
+  `--image_size SIZE`                             maximum width and/or height of the image
+  `--input-type INPUT_TYPE`                       use either content image or random noise as input
+  `--output OUTPUT`                               output name
+  `--print-iter PRINT_ITER`                       interval to print training information
+  `--save-iter SAVE_ITER`                         interval to save generated images
+  `--learning-rate LEARNING_RATE`                 learning rate
+  `--content-weight CONTENT_WEIGHT`               content weight factor
+  `--style-weight STYLE_WEIGHT`                   style weight factor
+  `--variation-weight TV_WEIGHT`                  axis-wise variation normalisation weight factor
+  `--iterations ITERATIONS`                       number of iterations
+  `--content-layer CONTENT_LAYERS`                layer for content representation
+  `--style-layers STYLE_LAYERS`                   style representation layers to use
+  `--style-layer-weights STYLE_LAYER_WEIGHTS`     weights for each style layer to use
+  `--weights-file WEIGHTS_FILE`                   File to read pre-trained VGG19 weights from
+
 
 # Acknowledgements
 * The idea and implementation are based on the [paper](http://arxiv.org/abs/1508.06576) by Leon A. Gatys, Alexander S. Ecker & Matthias Bethge.
