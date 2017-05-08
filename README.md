@@ -11,22 +11,23 @@ This work uses a pre-trained network (in this case VGG-19)
 # Examples
 Lets start with the mandatory Tubingen (germany) + starry sky combination.
 <div align="center">
- <img src="https://raw.githubusercontent.com/wolterr/neuralArt/master/examples/content/starry_night.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/neuralArt/master/master/examples/style/tubingen.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/neuralArt/master/master/examples/outputs/starry_tubingen.jpg" width="512px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/starry_night.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/style/tubingen.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/outputs/starry_tubingen.jpg" width="512px">
 </div>
 
-Next a kubism style image of a street in Trinidad (cuba)
+Next a Cubism style image of a street in Trinidad (Cuba)
 <div align="center">
- <img src="https://raw.githubusercontent.com/wolterr/neuralArt/master/examples/content/cubism.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/neuralArt/master/master/examples/style/trinidad.jpg" height="223px">
- <img src="https://raw.githubusercontent.com/wolterr/neuralArt/master/master/examples/outputs/cubed_trinidad.jpg" width="512px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/cubism.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/style/trinidad.jpg" height="223px">
+ <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/master/examples/outputs/cubed_trinidad.jpg" width="512px">
 </div>
 
 # Usage
-Basic usage
+Basic usage:
+
 '''
-python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OUTPUTFOLDER/OUTPUTFILENAME>
+python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OUTPUTFOLDER\/OUTPUTFILENAME>
 '''
 
 ## optional arguments:
@@ -49,9 +50,9 @@ python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OU
   '--weights-file WEIGHTS_FILE'                   File to read pre-trained VGG19 weights from
 
 # Acknowledgements
-* The idea and implementation are based on the [paper](http://arxiv.org/abs/1508.06576) by Leon A. Gatys, Alexander S. Ecker & Matthias Bethge
+* The idea and implementation are based on the [paper](http://arxiv.org/abs/1508.06576) by Leon A. Gatys, Alexander S. Ecker & Matthias Bethge.
 * The pre-trained weights used in the model are from a [tensorflow port](https://github.com/machrisaa/tensorflow-vgg) of the Caffe VGG-19 weights,
-done by [machrisaa](https://github.com/machrisaa)
-* Idea's to match the output at deepart.io more closely after initial implementation were found in the original [Luaimplementation](https://github
-.com/jcjohnson/neural-style)
+done by [machrisaa](https://github.com/machrisaa).
+* Idea's to match the output at deepart.io more closely after initial implementation were found in the original [Lua implementation](https://github
+.com/jcjohnson/neural-style).
 * Some of the code is based on an implementation by [anishathalye](https://github.com/anishathalye/neural-style).
