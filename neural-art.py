@@ -23,15 +23,15 @@ Program/file structure as following:
 #############################
 # defaults configuration
 #############################
-STYLE_INPUT = './images/style/style.jpg'
-CONTENT_INPUT = './images/content/tubingen.jpg'
+STYLE_INPUT = './images/style/Picasso_Women-of-Algiers.jpg'
+CONTENT_INPUT = './images/content/content.jpg'
 OUTPUT_LOCATION = './output/output'
 
 WEIGHTS_FILE = './resources/vgg19.npy'
 
 CONTENT_WEIGHT = 5e0
 STYLE_WEIGHT = 1e2
-TV_WEIGHT = 1e2
+TV_WEIGHT = 1e0
 
 LEARNING_RATE = 2
 NUM_ITERATIONS = 5000
@@ -228,7 +228,7 @@ with tf.Graph().as_default(), tf.Session() as sess:
 
     loss_style = tf.reduce_sum(style_losses)
 
-    # total variation denoising
+    # total variation loss
     #
     # Although it isn't mentioned in the paper the, I'm assuming, original Lua implementation (https://github.com/jcjohnson/neural-style) of the
     # algorithm uses a variational denoising term in the loss function. Using this does indeed get us closer to the images created by their
@@ -237,11 +237,7 @@ with tf.Graph().as_default(), tf.Session() as sess:
     # The idea behind total variation denoising:
     # TODO: Read up on this and explain here.
     #
-    loss_tv = (
-        (tf.nn.l2_loss(image[:, 1:, :, :] - image[:, :image_shape[1] - 1, :, :]) /
-         image_shape[1]) +
-        (tf.nn.l2_loss(image[:, :, 1:, :] - image[:, :, :image_shape[2] - 1, :]) /
-         image_shape[2]))
+    loss_tv = tf.image.total_variation(tf.reshape(image, [image_shape[1], image_shape[2], image_shape[3]]))
 
     # Calculate overall loss
     #
