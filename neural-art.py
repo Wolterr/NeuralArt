@@ -34,7 +34,7 @@ STYLE_WEIGHT = 1e2
 TV_WEIGHT = 1e0
 
 LEARNING_RATE = 2
-NUM_ITERATIONS = 5000
+NUM_ITERATIONS = 2000
 IMAGE_SIZE = 512
 
 output = ''
@@ -61,7 +61,19 @@ def normalize(value_list):
         normalised.append(i/sum_of_values)
     return np.array(normalised)
 
-# TODO: Explain gramm matrices and why they are usefull for this
+
+# Calculate gram matrix
+#
+# The gram matrix is a square matrix of dimensions num_filters X num_filters (depth X depth).
+# It is calculated by turning each 2D height/width representation into a 1D vector.
+# Using a dot product on the vector and its transpose, the correlations between the feature maps are calculated.
+#
+# Style, which can be regarded as texture, should apparently have strong local similarity over different representations (feature maps).
+# Highly correlating high-activation parts will have high gram values. low correlating or low-activation parts have low values.
+#
+# Trying to match this with our loss function should give us similar correlations, and with this similar high activations in certain places in our
+# image.
+#
 def gram_matrix(activations):
     if type(activations) is np.ndarray:
         activation_dimensions = np.shape(activations)
@@ -88,6 +100,7 @@ parser.add_argument('--input-type', dest='input_type', help='use either content 
 parser.add_argument('--output', dest='output', help='output name', default=OUTPUT_LOCATION, type=str)
 parser.add_argument('--print-iter', dest='print_iter', help='interval to print training information', default=PRINT_ITER, type=int)
 parser.add_argument('--save-iter', dest='save_iter', help='interval to save generated images', default=SAVE_ITER, type=int)
+# TODO: Fix output flag and save image code to work more intuitively.
 
 # optimization options
 parser.add_argument('--learning-rate', dest='learning_rate', help='learning rate', default=LEARNING_RATE, type=float)
@@ -235,13 +248,19 @@ with tf.Graph().as_default(), tf.Session() as sess:
     # implementation and the site deepart.io.
     #
     # The idea behind total variation denoising:
-    # TODO: Read up on this and explain here.
+    # "The total variation is the sum of the absolute differences for neighboring pixel-values in the input images. This measures how much
+    # noise is in the images." (https://www.tensorflow.org/api_docs/python/tf/image/total_variation)
+    #
+    # So with this we want to minimize the amount of changes in color/contrast in our image. Basically it is a form of blurring. When not setting
+    # the weight for this too high it results in noise reduction and a smoother image.
+    #
+    # Ugly reshape in there to have an easy way to get back just a float and not an array of length 1 due to our [1,x,x,x] image/tensor.
     #
     loss_tv = tf.image.total_variation(tf.reshape(image, [image_shape[1], image_shape[2], image_shape[3]]))
 
     # Calculate overall loss
     #
-    # Using standard formula from paper. Added simple variation denoising terms.
+    # Using standard formula from paper. Added simple variation denoising term.
     #
     loss_overall = (CONTENT_WEIGHT * loss_content) + (STYLE_WEIGHT * tf.cast(loss_style, dtype=tf.float32)) + (TV_WEIGHT * loss_tv)
 

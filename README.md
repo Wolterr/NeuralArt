@@ -16,9 +16,9 @@ Lets start with the mandatory Tubingen (germany) + starry sky combination.
  <img src="https://raw.githubusercontent.com/Wolterr/NeuralArt/master/examples/output/starry_tubingen.jpg" width="512px">
 </div>
 
+<p></p>
 
-
-Next a Cubism style image of a street in Trinidad (Cuba)
+Next a cubism style image of a street in Trinidad (Cuba)
 <div align="center">
  <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/content/trinidad.jpg" height="223px">
  <img src="https://raw.githubusercontent.com/wolterr/NeuralArt/master/examples/style/cubism.jpg" height="223px">
@@ -29,7 +29,7 @@ Next a Cubism style image of a street in Trinidad (Cuba)
 Basic usage:
 
 ```
-python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OUTPUTLOCATION>
+python neural-art.py --content-image <CONTENT> --style-image <STYLE> --output <OUTPUTLOCATION>
 ```
 
 
@@ -58,4 +58,3 @@ python neuralArt.py --content-image <CONTENT> --style-image <STYLE> --output <OU
 * The pre-trained weights used in the model are from a [tensorflow port](https://github.com/machrisaa/tensorflow-vgg) of the Caffe VGG-19 weights,
 done by [machrisaa](https://github.com/machrisaa).
 * Ideas to match the output at deepart.io more closely after initial implementation, were found in the original [Lua implementation](https://github.com/jcjohnson/neural-style).
-* Some of the code is based on an implementation by [anishathalye](https://github.com/anishathalye/neural-style).
